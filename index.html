@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Wayne's personal programming portfolio">
-  <title>Wayne | Personal Portfolio</title>
+  <meta name="description" content="Wayne's Industrial Engineering and Information Technology portfolio">
+  <title>Wayne | IE-IT Engineering & Technology Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 110px;
     }
 
     body {
@@ -76,6 +76,7 @@
       font-size: 25px;
       font-weight: 700;
       color: var(--pink-dark);
+      white-space: nowrap;
     }
 
     .logo span {
@@ -84,12 +85,12 @@
 
     .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
     .nav-links a {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--muted);
       transition: 0.3s;
@@ -245,6 +246,10 @@
       color: var(--muted);
     }
 
+    .soft-section {
+      background: #fff0f6;
+    }
+
     .card {
       background: white;
       border: 1px solid var(--border);
@@ -270,10 +275,6 @@
     }
 
     /* SKILLS */
-
-    .skills-section {
-      background: #fff0f6;
-    }
 
     .skills-grid {
       display: grid;
@@ -303,7 +304,7 @@
       margin-bottom: 12px;
     }
 
-    /* PROJECTS */
+    /* PROJECT CARDS */
 
     .projects-grid {
       display: grid;
@@ -352,16 +353,45 @@
       margin-bottom: 22px;
     }
 
-    /* RESUME */
-
-    .resume-section {
-      background: #fff0f6;
+    .paper-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
     }
+
+    .paper-actions .btn {
+      padding: 11px 18px;
+    }
+
+    .status-label {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--pink-dark);
+      background: var(--pink-light);
+      border-radius: 18px;
+      padding: 9px 14px;
+    }
+
+    .section-note {
+      text-align: center;
+      max-width: 720px;
+      margin: 28px auto 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* RESUME */
 
     .resume-content {
       text-align: center;
       max-width: 650px;
       margin: auto;
+    }
+
+    .resume-content h3 {
+      color: var(--pink-dark);
     }
 
     .resume-content p {
@@ -401,7 +431,6 @@
 
     .contact-item p {
       color: var(--muted);
-      overflow-wrap: anywhere;
     }
 
     /* FOOTER */
@@ -413,6 +442,14 @@
       border-top: 1px solid var(--border);
       color: var(--muted);
       font-size: 13px;
+    }
+
+    /* ACCESSIBILITY */
+
+    .nav-links a:focus-visible,
+    .btn:focus-visible {
+      outline: 3px solid var(--pink-dark);
+      outline-offset: 4px;
     }
 
     /* MOBILE */
@@ -451,10 +488,6 @@
     }
 
     @media (max-width: 480px) {
-      .skills-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .section-heading h2 {
         font-size: 30px;
       }
@@ -477,45 +510,64 @@
         transition: none;
       }
     }
+
   </style>
 </head>
 
 <body>
 
   <!-- NAVIGATION -->
+
   <header>
     <nav class="container">
-      <a class="logo" href="#">wayne<span>xdev.</span></a>
+      <a class="logo" href="#home">
+        wayne<span>xdev.</span>
+      </a>
 
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
+        <a href="#projects">Programming</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#research">Research</a>
+        <a href="#certifications">Achievements</a>
         <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
-  <!-- HOME -->
   <main>
+
+    <!-- HOME -->
+
     <section class="hero" id="home">
       <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">WELCOME TO MY PORTFOLIO ♡</span>
 
-          <h1>Hello, I'm <span>Wayne.</span></h1>
+        <div>
+          <span class="eyebrow">
+            WELCOME TO MY PORTFOLIO ♡
+          </span>
+
+          <h1>
+            Hello, I'm <span>Wayne.</span>
+          </h1>
 
           <p>
-            An Industrial Engineering with IT student
-            passionate about learning programming,
-            technology, and creating meaningful
-            solutions through code.
+            An Industrial Engineering with Information
+            Technology student passionate about
+            programming, engineering, systems
+            optimization, and creating meaningful
+            solutions through technology.
           </p>
 
           <div class="hero-buttons">
             <a href="#projects" class="btn btn-primary">
               Explore My Projects
+            </a>
+
+            <a href="#research" class="btn btn-secondary">
+              My Research
             </a>
 
             <a href="https://github.com/waynexdev"
@@ -529,62 +581,86 @@
 
         <div class="hero-art">
           <div class="art-icon">♡</div>
+
           <h3>Creating with purpose.</h3>
+
           <p>
-            Code, creativity, and continuous learning.
+            Engineering, technology, creativity,
+            and continuous learning.
           </p>
         </div>
+
       </div>
     </section>
 
     <!-- ABOUT ME -->
+
     <section id="about">
       <div class="container">
+
         <div class="section-heading">
           <h2>About Me ♡</h2>
           <p>Get to know me a little better.</p>
         </div>
 
         <div class="card about-content">
+
           <p>
             Hi! I'm Wayne, an Industrial Engineering
-            with Information Technology student at 
-            De La Salle University - Manila with an interest in
-            programming, technology, and problem-solving.
+            with Information Technology student
+            at De La Salle University - Manila.
           </p>
 
           <p>
-            I enjoy exploring how technology can be
-            used to improve processes, solve real-world
-            challenges, and create efficient systems.
+            I am interested in programming,
+            operations research, data analytics,
+            information systems, and engineering
+            problem-solving.
           </p>
 
           <p>
-            My programming journey includes developing
-            C++ applications, creating algorithms,
-            working with flowcharts, and documenting
-            programming projects.
+            I enjoy exploring how engineering
+            principles and technology can work
+            together to improve processes,
+            optimize resources, and create
+            efficient systems.
           </p>
 
           <p>
-            I'm continuously learning and improving
-            my technical and analytical skills as
-            I explore opportunities in technology
-            and engineering.
+            My academic experience includes
+            programming projects, mathematical
+            optimization, information systems
+            development, engineering case studies,
+            and research.
           </p>
+
+          <p>
+            Through this portfolio, I aim to
+            document my work, demonstrate my
+            technical and analytical abilities,
+            and showcase my continuous growth
+            as an aspiring engineer.
+          </p>
+
         </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section class="skills-section" id="skills">
+
+    <section class="soft-section" id="skills">
       <div class="container">
+
         <div class="section-heading">
           <h2>My Skills ✿</h2>
-          <p>Skills and concepts I've been developing.</p>
+          <p>
+            Technical skills and engineering
+            concepts I've been developing.
+          </p>
         </div>
 
         <div class="skills-grid">
+
           <div class="skill">
             <span class="skill-icon">⌨️</span>
             C++
@@ -624,33 +700,62 @@
             <span class="skill-icon">📐</span>
             Analytical Thinking
           </div>
+
+          <div class="skill">
+            <span class="skill-icon">📈</span>
+            Operations Research
+          </div>
+
+          <div class="skill">
+            <span class="skill-icon">🧮</span>
+            Optimization Modeling
+          </div>
+
+          <div class="skill">
+            <span class="skill-icon">📉</span>
+            Excel & Data Analysis
+          </div>
+
+          <div class="skill">
+            <span class="skill-icon">⚙️</span>
+            GAMS Modeling
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- PROGRAMMING PROJECTS -->
+
     <section id="projects">
       <div class="container">
+
         <div class="section-heading">
-          <h2>Featured Projects ♡</h2>
-          <p>A collection of my programming work.</p>
+          <h2>Programming Projects ♡</h2>
+          <p>
+            A collection of my programming work.
+          </p>
         </div>
 
         <div class="projects-grid">
 
-          <!-- PROJECT 1 -->
+          <!-- FLOWER SHOP -->
+
           <article class="project-card">
+
             <div class="project-icon">💐</div>
-            <span class="project-tag">C++ PROGRAMMING</span>
+            <span class="project-tag">
+              C++ PROGRAMMING
+            </span>
 
             <h3>Flower Shop Cash Register</h3>
 
             <p>
-              A console-based C++ cashier system for
-              a flower shop. It allows customers to
-              select flower arrangements, enter
-              payments, check insufficient payments,
-              and calculate change.
+              A console-based C++ cashier system
+              for a flower shop. It allows customers
+              to select flower arrangements,
+              enter payments, check insufficient
+              payments, and calculate change.
             </p>
 
             <a
@@ -660,20 +765,25 @@
               class="btn btn-primary">
               View Source Code ↗
             </a>
+
           </article>
 
-          <!-- PROJECT 2 -->
+          <!-- AREA CALCULATOR -->
+
           <article class="project-card">
+
             <div class="project-icon">📐</div>
-            <span class="project-tag">C++ PROGRAMMING</span>
+            <span class="project-tag">
+              C++ PROGRAMMING
+            </span>
 
             <h3>Area Calculator</h3>
 
             <p>
-              A C++ programming project that applies
-              mathematical formulas, input handling,
-              and logical operations to calculate
-              areas.
+              A C++ programming project that
+              applies mathematical formulas,
+              input handling, and logical
+              operations to calculate areas.
             </p>
 
             <a
@@ -683,99 +793,448 @@
               class="btn btn-primary">
               View Source Code ↗
             </a>
+
           </article>
 
         </div>
 
         <div style="text-align:center; margin-top:35px;">
+
           <a
             href="https://github.com/waynexdev/Wayne-Programming-Portfolio"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-secondary">
-            View All Project Files ↗
+            View All Programming Projects ↗
           </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ENGINEERING PROJECTS -->
+
+    <section id="engineering" class="soft-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Engineering Projects ✿</h2>
+
+          <p>
+            Applying Industrial Engineering
+            concepts to real-world problems.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- OPERATIONS RESEARCH -->
+
+          <article class="project-card">
+
+            <div class="project-icon">📊</div>
+
+            <span class="project-tag">
+              OPERATIONS RESEARCH
+            </span>
+
+            <h3>
+              Optimization & Mathematical Modeling
+            </h3>
+
+            <p>
+              Applications of linear programming,
+              integer programming, branch and bound,
+              resource allocation, and mathematical
+              optimization to engineering
+              decision-making problems.
+            </p>
+
+            <span class="status-label">
+              Portfolio materials being prepared
+            </span>
+
+          </article>
+
+          <!-- GAMS -->
+
+          <article class="project-card">
+
+            <div class="project-icon">⚙️</div>
+
+            <span class="project-tag">
+              ENGINEERING SOFTWARE
+            </span>
+
+            <h3>GAMS Optimization Models</h3>
+
+            <p>
+              Mathematical modeling exercises
+              using the General Algebraic
+              Modeling System (GAMS) to formulate
+              objectives, define constraints,
+              and explore optimal solutions.
+            </p>
+
+            <span class="status-label">
+              Portfolio materials being prepared
+            </span>
+
+          </article>
+
+          <!-- RFID -->
+
+          <article class="project-card">
+
+            <div class="project-icon">🚦</div>
+
+            <span class="project-tag">
+              PROCESS IMPROVEMENT
+            </span>
+
+            <h3>Campus Entry Process Study</h3>
+
+            <p>
+              A proposed process improvement
+              study addressing student queues
+              at campus entrances caused by
+              RFID tapping, bag inspection,
+              and security screening.
+            </p>
+
+            <span class="status-label">
+              Proposal / In Progress
+            </span>
+
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH AND CASE STUDIES -->
+
+    <section id="research">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Research & Case Studies ♡</h2>
+
+          <p>
+            Selected academic research,
+            information systems projects,
+            and engineering case studies.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- APEX ERP -->
+
+          <article class="project-card">
+
+            <div class="project-icon">🌿</div>
+
+            <span class="project-tag">
+              INFORMATION SYSTEMS · GROUP PROJECT
+            </span>
+
+            <h3>Proposed ERP System of APEX</h3>
+
+            <p>
+              An Enterprise Resource Planning
+              (ERP) systems proposal for
+              Surat Thani Green Energy,
+              a subsidiary of APEX Energy.
+
+              The project examines systems
+              planning, requirements analysis,
+              process models, and operational
+              management to propose a more
+              integrated business system.
+            </p>
+
+            <div class="paper-actions">
+
+              <a
+                href="papers/APEX_ERP_System.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary">
+                View PDF ↗
+              </a>
+
+              <a
+                href="https://www.studocu.com/ph/document/de-la-salle-university/management-information-systems/erp-system-of-apex/116897217?sid=ed12c996-c372-4e64-89da-fe36e1ecdea11791447516"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary">
+                View on Studocu ↗
+              </a>
+
+            </div>
+
+          </article>
+
+          <!-- LOGISTICS CRM -->
+
+          <article class="project-card">
+
+            <div class="project-icon">🚚</div>
+
+            <span class="project-tag">
+              RESEARCH · LOGISTICS & INFORMATION SYSTEMS
+            </span>
+
+            <h3>
+              Evidence-Based Logistics CRM System
+              with Decision Support
+            </h3>
+
+            <p>
+              A research project focusing on the
+              development and evaluation of a
+              logistics-oriented Customer
+              Relationship Management system
+              with decision-support features.
+
+              The project incorporates
+              role-based dashboards, shipment
+              tracking, sales monitoring,
+              customer inquiry management,
+              and usability evaluation to
+              support managerial decision-making.
+            </p>
+
+            <div class="paper-actions">
+
+              <a
+                href="papers/Logistics_CRM_Decision_Support.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary">
+                Read Research PDF ↗
+              </a>
+
+            </div>
+
+          </article>
+
+          <!-- DIGITAL FRICTION -->
+
+          <article class="project-card">
+
+            <div class="project-icon">🧠</div>
+
+            <span class="project-tag">
+              RESEARCH DESIGN
+            </span>
+
+            <h3>Digital Interaction Friction</h3>
+
+            <p>
+              A research concept exploring
+              how interface design and
+              task sequence can influence
+              user performance, cognitive
+              effort, and overall experience
+              when interacting with
+              digital systems.
+            </p>
+
+            <span class="status-label">
+              Research materials not yet published
+            </span>
+
+          </article>
+
+          <!-- CASE STUDIES -->
+
+          <article class="project-card">
+
+            <div class="project-icon">📄</div>
+
+            <span class="project-tag">
+              ENGINEERING CASE STUDIES
+            </span>
+
+            <h3>Engineering Case Study Collection</h3>
+
+            <p>
+              A growing collection of
+              academic reports involving
+              process analysis, cost
+              accounting, quality management,
+              systems improvement, and
+              engineering decision-making.
+            </p>
+
+            <span class="status-label">
+              Selected papers coming soon
+            </span>
+
+          </article>
+
+        </div>
+
+        <p class="section-note">
+          Research PDFs can be viewed using the links
+          above after the files are uploaded to the
+          corresponding GitHub repository folder.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+
+    <section id="certifications" class="soft-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Certifications & Achievements ✿</h2>
+
+          <p>
+            Academic milestones, certifications,
+            and professional development.
+          </p>
+        </div>
+
+        <div class="card resume-content">
+
+          <div class="project-icon">🏅</div>
+
+          <h3>Growing My Portfolio</h3>
+
+          <p>
+            This section will feature my
+            academic achievements,
+            technical certifications,
+            competition participation,
+            and professional development
+            experiences.
+          </p>
+
+          <span class="status-label">
+            More achievements coming soon
+          </span>
+
         </div>
       </div>
     </section>
 
     <!-- RESUME -->
-    <section class="resume-section" id="resume">
+
+    <section class="soft-section" id="resume">
       <div class="container">
+
         <div class="section-heading">
           <h2>My Resume ♡</h2>
-          <p>Education, experiences, and qualifications.</p>
+
+          <p>
+            Education, experiences,
+            and qualifications.
+          </p>
         </div>
 
         <div class="card resume-content">
+
           <h3>Let's Work Together!</h3>
 
           <p>
-            Interested in learning more about my
-            academic background and technical
-            experience? You can view my resume here
-            once it's available.
+            Interested in learning more
+            about my academic background,
+            technical experience,
+            and engineering projects?
+
+            My resume will be available
+            here once uploaded.
           </p>
 
-          <!--
-            Upload a PDF named resume.pdf
-            to your GitHub Pages repository
-            to enable the resume link.
-          -->
+          <!-- Add a PDF resume link when available. -->
 
-          <a
-            href="resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary">
-            View My Resume ↗
-          </a>
+          <span class="status-label">
+            Resume PDF will be added soon
+          </span>
+
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
+
     <section id="contact">
       <div class="container">
+
         <div class="section-heading">
           <h2>Let's Connect ♡</h2>
-          <p>Feel free to reach out or explore my work.</p>
+
+          <p>
+            Feel free to reach out
+            or explore my work.
+          </p>
         </div>
 
         <div class="contact-grid">
+
+          <!-- GITHUB -->
+
           <div class="contact-item">
+
             <h3>GitHub</h3>
 
-            <a href="https://github.com/waynexdev"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+              href="https://github.com/waynexdev"
+              target="_blank"
+              rel="noopener noreferrer">
               github.com/waynexdev
             </a>
+
           </div>
 
+          <!-- EMAIL -->
+
           <div class="contact-item">
+
             <h3>Email</h3>
-            <p>dj_yamomo@dlsu.edu.ph</p>
+
+            <a href="mailto:dj_yamomo@dlsu.edu.ph">
+              dj_yamomo@dlsu.edu.ph
+            </a>
+
           </div>
 
+          <!-- PORTFOLIO -->
+
           <div class="contact-item">
+
             <h3>Portfolio</h3>
 
-            <a href="https://waynexdev.github.io"
-               target="_blank"
-               rel="noopener noreferrer">
+            <a
+              href="https://waynexdev.github.io"
+              target="_blank"
+              rel="noopener noreferrer">
               waynexdev.github.io
             </a>
+
           </div>
+
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
+
   <footer>
     <div class="container">
-      <p>Made with ♡ by Wayne | © 2026 WayneXDev</p>
+
+      <p>
+        Made with ♡ by Wayne | © 2026 WayneXDev
+      </p>
+
     </div>
   </footer>
 
