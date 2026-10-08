@@ -1,49 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wayne | Programming Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wayne | Portfolio</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: #111827;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #fff8fb 0%, #ffffff 100%);
+      color: #5c3a47;
+      line-height: 1.6;
     }
-    h1 { color: #86efac; }
-    .project {
-      background: #1f2937;
-      padding: 20px;
-      margin: 20px auto;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #f7d7e3;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #d86a92;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      color: #7a5060;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #e88bab;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 70px 0 40px;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #ffe4ee;
+      color: #c95d88;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 18px;
+      border: 1px solid #f8bfd1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      color: #b84f79;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #ea8fb0;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: #755563;
+      max-width: 650px;
+      margin-bottom: 25px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
       border-radius: 12px;
-      max-width: 500px;
+      font-weight: bold;
+      transition: 0.3s ease;
+      border: 2px solid transparent;
     }
-    a { color: #86efac; }
+
+    .btn-primary {
+      background: #e88bab;
+      color: white;
+      box-shadow: 0 8px 20px rgba(232, 139, 171, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #da7399;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #c85f89;
+      border: 2px solid #f2b7ca;
+    }
+
+    .btn-secondary:hover {
+      background: #fff2f7;
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      background: white;
+      border: 1px solid #f7d5e1;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 15px 40px rgba(233, 171, 195, 0.18);
+    }
+
+    .hero-card h3 {
+      color: #c85f89;
+      margin-bottom: 14px;
+    }
+
+    .hero-card p {
+      margin-bottom: 10px;
+      color: #755563;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: #c95d88;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #7b5d69;
+      margin-bottom: 40px;
+    }
+
+    /* ABOUT */
+    .about-box {
+      background: white;
+      border: 1px solid #f8d6e3;
+      border-radius: 22px;
+      padding: 35px;
+      box-shadow: 0 12px 28px rgba(236, 189, 208, 0.16);
+    }
+
+    .about-box p {
+      color: #6e5260;
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .skill-card {
+      background: white;
+      border: 1px solid #f7d4e0;
+      padding: 20px;
+      border-radius: 18px;
+      text-align: center;
+      font-weight: bold;
+      color: #b85b7f;
+      box-shadow: 0 10px 24px rgba(240, 197, 214, 0.16);
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      background: #fff7fa;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid #f8d9e5;
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 14px 30px rgba(235, 184, 204, 0.16);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .project-card h3 {
+      color: #c95d88;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: #6f5461;
+      margin-bottom: 16px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: #ffe9f1;
+      color: #c85f89;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+      font-weight: bold;
+    }
+
+    /* RESUME */
+    .resume-box {
+      background: linear-gradient(135deg, #fff1f6, #ffffff);
+      border: 1px solid #f7d5e1;
+      border-radius: 24px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(236, 189, 208, 0.16);
+    }
+
+    .resume-box h3 {
+      color: #c95d88;
+      margin-bottom: 12px;
+    }
+
+    .resume-box p {
+      color: #6f5461;
+      margin-bottom: 20px;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid #f8d6e2;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 24px rgba(240, 197, 214, 0.16);
+    }
+
+    .contact-card h4 {
+      color: #c95d88;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p,
+    .contact-card a {
+      color: #6f5461;
+      word-break: break-word;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: #926b7a;
+      font-size: 0.95rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .nav-content {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Hello, I'm Wayne!</h1>
-  <h3>Industrial Engineering with IT Student</h3>
-  <p>Welcome to my programming portfolio.</p>
 
-  <h2>My Projects</h2>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-content">
+      <div class="logo">waynexdev</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-  <div class="project">
-    <h3>Flower Shop Cash Register</h3>
-    <p>A C++ console-based cashier system.</p>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div>
+        <div class="badge">Industrial Engineering with IT Student</div>
+        <h1>Hi, I'm <span>Wayne</span> 💗</h1>
+        <p>
+          Welcome to my personal developer portfolio. I’m an Industrial Engineering with IT student
+          who enjoys learning programming, building projects, and solving problems through code.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View My Projects</a>
+          <a href="https://github.com/waynexdev" target="_blank" class="btn btn-secondary">GitHub Profile</a>
+        </div>
+      </div>
 
-  <div class="project">
-    <h3>Area Calculator</h3>
-    <p>A C++ program for area calculations.</p>
-  </div>
+      <div class="hero-card">
+        <h3>Quick Info</h3>
+        <p><strong>Name:</strong> Wayne</p>
+        <p><strong>Program:</strong> Industrial Engineering with IT</p>
+        <p><strong>Interests:</strong> C++, problem solving, programming fundamentals, and project development</p>
+        <p><strong>Portfolio:</strong> waynexdev.github.io</p>
+      </div>
+    </div>
+  </section>
 
-  <p>
-    <a href="https://github.com/waynexdev">
-      View My GitHub Profile
-    </a>
-  </p>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">A little introduction about who I am and what I do.</p>
+
+      <div class="about-box">
+        <p>
+          Hello! I’m Wayne, an <strong>Industrial Engineering with IT student</strong> with an interest in
+          technology, programming, and building practical solutions through code.
+        </p>
+        <p>
+          I enjoy creating beginner-friendly programming projects that strengthen my understanding of
+          logic, algorithms, and software development. My current work includes C++ console-based
+          applications such as a <strong>Flower Shop Cash Register</strong> and an <strong>Area Calculator</strong>.
+        </p>
+        <p>
+          Through my academic journey, I continue to develop my skills in problem solving, programming,
+          and project organization while exploring how technology can support efficiency and innovation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">Technologies and strengths I am currently developing.</p>
+
+      <div class="skills-grid">
+        <div class="skill-card">C++ Programming</div>
+        <div class="skill-card">Problem Solving</div>
+        <div class="skill-card">Algorithms</div>
+        <div class="skill-card">Flowcharts</div>
+        <div class="skill-card">Console Applications</div>
+        <div class="skill-card">Basic Documentation</div>
+        <div class="skill-card">GitHub</div>
+        <div class="skill-card">Analytical Thinking</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Here are some of my featured C++ programming projects.</p>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-tag">C++ Project</div>
+          <h3>Flower Shop Cash Register</h3>
+          <p>
+            A C++ console-based cashier system for a flower shop. This project includes order selection,
+            billing, payment input, deficiency checking, and change computation.
+          </p>
+          <a href="https://github.com/waynexdev/Wayne-Programming-Portfolio/blob/main/Wayne_CashReg.cpp" target="_blank" class="btn btn-primary">View Code</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">C++ Project</div>
+          <h3>Area Calculator</h3>
+          <p>
+            A C++ program designed to compute area values. This project demonstrates programming logic,
+            formulas, and user interaction in a console application.
+          </p>
+          <a href="https://github.com/waynexdev/Wayne-Programming-Portfolio/blob/main/Wayne_Area.cpp" target="_blank" class="btn btn-primary">View Code</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">Portfolio Repository</div>
+          <h3>Programming Portfolio Repository</h3>
+          <p>
+            This repository contains my source codes, algorithms, and documentation for my programming
+            projects.
+          </p>
+          <a href="https://github.com/waynexdev/Wayne-Programming-Portfolio" target="_blank" class="btn btn-primary">Open Repository</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="container">
+      <h2 class="section-title">Resume</h2>
+      <p class="section-subtitle">You can add your resume here for internship or job applications.</p>
+
+      <div class="resume-box">
+        <h3>Download My Resume</h3>
+        <p>
+          Upload your resume PDF to this same repository and rename it as <strong>resume.pdf</strong>,
+          then this button will work automatically.
+        </p>
+        <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">Feel free to connect with me.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h4>GitHub</h4>
+          <a href="https://github.com/waynexdev" target="_blank">github.com/waynexdev</a>
+        </div>
+
+        <div class="contact-card">
+          <h4>Email</h4>
+          <p>your-email@example.com</p>
+        </div>
+
+        <div class="contact-card">
+          <h4>Website</h4>
+          <a href="https://waynexdev.github.io" target="_blank">waynexdev.github.io</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Wayne. All rights reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
